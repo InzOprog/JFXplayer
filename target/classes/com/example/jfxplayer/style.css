@@ -1,0 +1,14 @@
+.list-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+
+.lv_css_Title .scroll-bar:vertical:disabled {
+    -fx-opacity: 0;
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vBox_fx_Main" alignment="CENTER" prefHeight="500.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jfxplayer.buttonController">
+    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <ScrollPane id="sv_Scroll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1000.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="500.0" />
+                        <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="300.0" />
+                        <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <ListView id="lv_css_Title" fx:id="lv_fx_Title" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" />
+                    <ListView id="lv_css_Author" fx:id="lv_fx_Artist" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" GridPane.columnIndex="1" />
+                    <ListView id="lv_css_Direction" fx:id="lv_fx_Album" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                </GridPane>
+            </AnchorPane>
+        </ScrollPane>
+        <ProgressBar id="pb_Duration" fx:id="pb_fx_musicBar" maxWidth="1.7976931348623157E308" progress="0.0" style="-fx-background-radius: 0;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+        <GridPane maxHeight="1.7976931348623157E308" GridPane.rowIndex="2">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <Button id="btn_Previous" fx:id="btn_fx_Previous" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickPrevious" style="-fx-background-color: #ffffff00;" textFill="#ffffff00" textOverrun="CLIP" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Previous" fitWidth="70.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <viewport>
+                            <Rectangle2D />
+                        </viewport>
+                        <Image url="@../../../images/previous.png" />
+                    </ImageView>
+                </graphic>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Button>
+            <Button id="btn_Play" fx:id="btn_fx_Play" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickPlay" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Play" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../images/play.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button id="btn_Next" fx:id="btn_fx_Next" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickNext" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Next" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../images/next.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button id="btn_Select" fx:id="btn_fx_Select" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickSelect" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Select" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../images/album.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button id="btn_Shuffle" fx:id="btn_fx_Shuffle" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickShuffle" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Shuffle" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../images/shuffle.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button id="btn_Repeat" fx:id="btn_fx_Repeat" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickRepeat" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Repeat" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../images/repeat.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button id="btn_Mute" fx:id="btn_fx_Mute" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickMute" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <graphic>
+                    <ImageView fx:id="iv_fx_Mute" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../images/mute.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+        </GridPane>
+    </GridPane>
+</VBox>
