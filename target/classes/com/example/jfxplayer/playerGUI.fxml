@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vBox_fx_Main" alignment="CENTER" prefHeight="500.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jfxplayer.buttonController">
+<VBox fx:id="vBox_fx_Main" alignment="CENTER" onKeyPressed="#keyboardHandler" prefHeight="500.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jfxplayer.buttonController">
     <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,9 +39,9 @@
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
-                    <ListView id="lv_css_Title" fx:id="lv_fx_Title" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" />
-                    <ListView id="lv_css_Author" fx:id="lv_fx_Artist" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" GridPane.columnIndex="1" />
-                    <ListView id="lv_css_Direction" fx:id="lv_fx_Album" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                    <ListView id="lv_css_Title" fx:id="lv_fx_Title" focusTraversable="false" prefHeight="390.0" prefWidth="1014.0" stylesheets="@style.css" />
+                    <ListView id="lv_css_Author" fx:id="lv_fx_Artist" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" GridPane.columnIndex="1" />
+                    <ListView id="lv_css_Direction" fx:id="lv_fx_Album" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
                 </GridPane>
             </AnchorPane>
         </ScrollPane>
@@ -53,6 +54,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
@@ -67,7 +69,7 @@
                         <viewport>
                             <Rectangle2D />
                         </viewport>
-                        <Image url="@../../../images/previous.png" />
+                        <Image url="@../../../media/previous.png" />
                     </ImageView>
                 </graphic>
                 <opaqueInsets>
@@ -80,7 +82,7 @@
                 </GridPane.margin>
                 <graphic>
                     <ImageView fx:id="iv_fx_Play" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../images/play.png" />
+                        <Image url="@../../../media/play.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -90,7 +92,7 @@
                 </GridPane.margin>
                 <graphic>
                     <ImageView fx:id="iv_fx_Next" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../images/next.png" />
+                        <Image url="@../../../media/next.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -100,7 +102,7 @@
                 </GridPane.margin>
                 <graphic>
                     <ImageView fx:id="iv_fx_Select" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../images/album.png" />
+                        <Image url="@../../../media/album.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -110,7 +112,7 @@
                 </GridPane.margin>
                 <graphic>
                     <ImageView fx:id="iv_fx_Shuffle" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../images/shuffle.png" />
+                        <Image url="@../../../media/shuffle.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -119,21 +121,50 @@
                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                 </GridPane.margin>
                 <graphic>
-                    <ImageView fx:id="iv_fx_Repeat" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../images/repeat.png" />
+                    <ImageView fx:id="iv_fx_Repeat" disable="true" fitWidth="70.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../media/repeat.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button id="btn_Mute" fx:id="btn_fx_Mute" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickMute" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button id="btn_Mute" fx:id="btn_fx_Mute" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickMute" style="-fx-background-color: #ffffff00;" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                 <GridPane.margin>
                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                 </GridPane.margin>
                 <graphic>
                     <ImageView fx:id="iv_fx_Mute" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../images/mute.png" />
+                        <Image url="@../../../media/mute.png" />
                     </ImageView>
                 </graphic>
             </Button>
+            <GridPane GridPane.columnIndex="6">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <Button id="btn_Mute" fx:id="btn_fx_volumeUp" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickvolumeUp" style="-fx-background-color: #ffffff00;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                    <graphic>
+                        <ImageView fx:id="iv_fx_volumeUp" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../media/volume-up.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button id="btn_Mute" fx:id="btn_fx_volumeDown" maxHeight="1.7976931348623157E308" maxWidth="90.0" mnemonicParsing="false" onAction="#clickvolumeDown" style="-fx-background-color: #ffffff00;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                    <graphic>
+                        <ImageView fx:id="iv_fx_VolumeDown" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../media/volume-down.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Slider fx:id="pb_fx_volumeBar" orientation="VERTICAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            </GridPane>
         </GridPane>
     </GridPane>
 </VBox>
